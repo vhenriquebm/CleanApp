@@ -13,6 +13,9 @@
 		427890AD28878C6E00C71837 /* RemoteAddAccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427890AC28878C6E00C71837 /* RemoteAddAccountTests.swift */; };
 		427890B628878CA300C71837 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4278907C28878A5F00C71837 /* Domain.framework */; };
 		427890B728878CA300C71837 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4278907C28878A5F00C71837 /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		42A04F87288A226C00012115 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A04F86288A226C00012115 /* Model.swift */; };
+		42A04F89288A239E00012115 /* RemoteAddAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A04F88288A239E00012115 /* RemoteAddAccount.swift */; };
+		42A04F8B288A240100012115 /* HttpPostClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A04F8A288A240100012115 /* HttpPostClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,9 @@
 		427890A028878C6E00C71837 /* Data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Data.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		427890A728878C6E00C71837 /* DataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		427890AC28878C6E00C71837 /* RemoteAddAccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAddAccountTests.swift; sourceTree = "<group>"; };
+		42A04F86288A226C00012115 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		42A04F88288A239E00012115 /* RemoteAddAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAddAccount.swift; sourceTree = "<group>"; };
+		42A04F8A288A240100012115 /* HttpPostClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpPostClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +114,7 @@
 			children = (
 				4278908328878AB100C71837 /* AddAccount.swift */,
 				4278908528878BBA00C71837 /* AccountModel.swift */,
+				42A04F86288A226C00012115 /* Model.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -115,6 +122,8 @@
 		427890A128878C6E00C71837 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				42A04F88288A239E00012115 /* RemoteAddAccount.swift */,
+				42A04F8A288A240100012115 /* HttpPostClient.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -226,6 +235,7 @@
 					};
 					4278909F28878C6E00C71837 = {
 						CreatedOnToolsVersion = 13.4.1;
+						LastSwiftMigration = 1340;
 					};
 					427890A628878C6E00C71837 = {
 						CreatedOnToolsVersion = 13.4.1;
@@ -281,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42A04F87288A226C00012115 /* Model.swift in Sources */,
 				4278908428878AB100C71837 /* AddAccount.swift in Sources */,
 				4278908628878BBA00C71837 /* AccountModel.swift in Sources */,
 			);
@@ -290,6 +301,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42A04F8B288A240100012115 /* HttpPostClient.swift in Sources */,
+				42A04F89288A239E00012115 /* RemoteAddAccount.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,6 +516,7 @@
 		427890AF28878C6E00C71837 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -526,6 +540,7 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -533,6 +548,7 @@
 		427890B028878C6E00C71837 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -563,6 +579,7 @@
 		427890B128878C6E00C71837 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CTDN3273R3;
@@ -580,6 +597,7 @@
 		427890B228878C6E00C71837 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CTDN3273R3;

@@ -1,45 +1,51 @@
-//
-//  DataTests.swift
-//  DataTests
-//
-//  Created by Vitor Henrique Barreiro Marinho on 19/07/22.
-//
 
 import XCTest
-//@testable import Data
+import Domain
+import Data
 
-class RemoteAddAccount {
-    private let url: URL
-    private let httpClient:HttpPostClient
-    
-    init (url:URL, httpClient: HttpPostClient) {
-        self.url = url
-        self.httpClient = httpClient
-    }
-    
-    func add () {
-        httpClient.post(url: url)
-    }
-}
 
-protocol HttpPostClient {
-    func post(url:URL)
-}
 
 class RemoteAddAccountTests: XCTestCase {
-
+    
     func test_add_should_httpClient_with_correct_url () {
-        let url = URL(string: "http://any-url.com")!
-        let httpClientSpy = HttpClientSpy()
-        let sut = RemoteAddAccount (url:url , httpClient: httpClientSpy)
-        sut.add()
+       let url = URL(string: "http//any-url.com")!
+        let (sut, httpClientSpy) = makeSut(url: url)
+        sut.add(addAccountModel: makeAddaccountModel())
         XCTAssertEqual(httpClientSpy.url, url)
+    }
+
+    func test_add_should_httpClient_with_correct_data () {
+     
+        let (sut, httpClientSpy) = makeSut()
+        let addAccountModel =  makeAddaccountModel()
+         sut.add(addAccountModel: makeAddaccountModel())
+        XCTAssertEqual(httpClientSpy.data, addAccountModel.toData())
+    }
+    
+ 
+}
+
+
+
+// Helpers
+extension RemoteAddAccountTests {
+    
+    func makeSut (url: URL = URL(string: "http//any-url.com")!) -> (sut: RemoteAddAccount, httpClientSpy: HttpClientSpy) {
+        let httpClientSpy = HttpClientSpy()
+        let sut = RemoteAddAccount(url: url, httpClient: httpClientSpy)
+   return (sut, httpClientSpy)
+    }
+    
+    func makeAddaccountModel () -> AddAccountModel {
+        return AddAccountModel(name: "any_name", email: "any_email@gmail.com", password: "any_password", passwordConfirmation: "any_password")
     }
     
     class HttpClientSpy: HttpPostClient {
         var url: URL?
-        func post(url: URL) {
+        var data: Data?
+        func post(to url: URL, with data: Data?) {
             self.url = url
+            self.data = data
     }
     }
 }
